@@ -1,0 +1,121 @@
+{
+  "datasets": [
+    "CIFAR-10",
+    "X-ray(fixed)",
+    "MRI4",
+    "MRI15"
+  ],
+  "methods": [
+    "EM",
+    "REM",
+    "SEM",
+    "GUE",
+    "AR",
+    "LSPNormal",
+    "LSPAUG",
+    "T-AP",
+    "UT-AP",
+    "HYPO_P1",
+    "HYPO_P3",
+    "HYPO_P5"
+  ],
+  "paper_aligned": {
+    "HYPO_P1": {
+      "family": "p1",
+      "condition": "P1",
+      "selection": "validation_best"
+    },
+    "HYPO_P5": {
+      "family": "p5",
+      "condition": "P5",
+      "selection": "validation_best"
+    },
+    "AR": {
+      "family": "ar",
+      "condition": "AR",
+      "selection": "fixed_final"
+    },
+    "T-AP": {
+      "family": "tap",
+      "condition": "T-AP",
+      "selection": "fixed_final"
+    }
+  },
+  "common": {
+    "seed": 42,
+    "selection": "validation_best",
+    "medical": {
+      "optimizer": "Adam",
+      "lr": 0.001,
+      "epochs": 100,
+      "batch_size": 32,
+      "augmentation": "none",
+      "class_weighting": "none"
+    },
+    "cifar": {
+      "optimizer": "SGD",
+      "lr": 0.1,
+      "epochs": 200,
+      "batch_size": 128,
+      "momentum": 0.9,
+      "nesterov": true,
+      "weight_decay": 0.0005,
+      "augmentation": "none",
+      "schedule": "warmup5+cosine",
+      "normalization": "clean train only"
+    },
+    "lspaug": {
+      "clean_baseline": "CLEAN_AUG",
+      "epochs": 100,
+      "optimizer": "Adam",
+      "lr": 0.001,
+      "augmentation": "crop padding4+flip"
+    }
+  },
+  "gue": {
+    "generation_protocol": "gue_official_generation_common_eval_v2",
+    "seed": 3,
+    "epochs": 50,
+    "epsilon": 0.03137254901960784,
+    "lr_cls": 0.01,
+    "lr_atk": 0.1,
+    "lr_tmp": 0.0001,
+    "inner_iterations": 10,
+    "eta": 1.5,
+    "generation_batch": {
+      "CIFAR-10": 256,
+      "MRI4": 4,
+      "MRI15": 8,
+      "X-ray(fixed)": 8
+    },
+    "selection": "fixed final generator; no test/validation access"
+  },
+  "figures": {
+    "ratios": [
+      20,
+      40,
+      60,
+      80
+    ],
+    "mask_seed": 42,
+    "aa_repeat": 5,
+    "aa_adversarial_epochs": 50,
+    "aa_later_repeat": 1,
+    "jpeg": false
+  },
+  "xray": {
+    "data_version": "xray_singlelabel12_v3",
+    "single_annotation": true,
+    "min_train_support": 50,
+    "patient_disjoint": true,
+    "train_n": 8843,
+    "validation_n": 3758,
+    "test_n": 8417
+  },
+  "limitations": [
+    "MRI patient independence is unverified",
+    "One training seed per protocol",
+    "Native CIFAR train/holdout protocols differ across methods",
+    "P5 CIFAR validation-best and fixed-final results differ substantially"
+  ]
+}

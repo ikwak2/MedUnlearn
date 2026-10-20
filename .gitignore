@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv*/
+workspace*/
+data/
+outputs/
+*.pt
+*.pth
+*.npy
+*.npz
+*.partial*
+*_predictions.csv
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+third_party/UEraser/

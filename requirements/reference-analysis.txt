@@ -1,0 +1,4 @@
+# Optional CPU SSIM/plotting dependencies compatible with the native NumPy1 environment.
+scipy==1.10.1
+scikit-image==0.21.0
+matplotlib==3.7.5

@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medunlearn"
+version = "0.1.0"
+description = "Reproduction code for class-wise evaluation of unlearnable medical images"
+requires-python = ">=3.10,<3.12"
+readme = "README.md"
+license = {file = "LICENSE"}
+
+[project.scripts]
+medunlearn = "medunlearn.cli:main"
+
+[tool.setuptools]
+packages = ["medunlearn"]
+
+[tool.setuptools.data-files]
+"share/medunlearn/configs" = ["configs/source_provenance.json", "configs/table3.json"]
+"share/medunlearn/engines/artifacts" = ["engines/artifacts/common.py", "engines/artifacts/tsne.py"]
+"share/medunlearn/engines/common" = ["engines/common/benchmark.py", "engines/common/benchmark_cifar_sgd.py", "engines/common/benchmark_fixed.py", "engines/common/classwise_metrics.py", "engines/common/generate_advanced.py", "engines/common/generate_gue.py", "engines/common/generate_simple.py", "engines/common/loss_weights.py"]
+"share/medunlearn/engines/figures" = ["engines/figures/aa_case.py", "engines/figures/aa_loss.py", "engines/figures/aa_native.py", "engines/figures/mixing.py", "engines/figures/native_case.py", "engines/figures/run_case.py", "engines/figures/util.py"]
+"share/medunlearn/engines/reference/ar" = ["engines/reference/ar/ar_coefficients.json", "engines/reference/ar/ar_generation.py", "engines/reference/ar/classwise_metrics.py", "engines/reference/ar/experiment.py"]
+"share/medunlearn/engines/reference/ar/ar_official" = ["engines/reference/ar/ar_official/LICENSE"]
+"share/medunlearn/engines/reference/ar/ar_official/models" = ["engines/reference/ar/ar_official/models/resnet.py"]
+"share/medunlearn/engines/reference/ar/official" = ["engines/reference/ar/official/LICENSE"]
+"share/medunlearn/engines/reference/ar/official/attacks" = ["engines/reference/ar/official/attacks/step.py"]
+"share/medunlearn/engines/reference/ar/official/models" = ["engines/reference/ar/official/models/resnet.py", "engines/reference/ar/official/models/vgg.py"]
+"share/medunlearn/engines/reference/p1" = ["engines/reference/p1/ar_coefficients.json", "engines/reference/p1/ar_generation.py", "engines/reference/p1/classwise_metrics.py", "engines/reference/p1/experiment.py"]
+"share/medunlearn/engines/reference/p1/ar_official" = ["engines/reference/p1/ar_official/LICENSE"]
+"share/medunlearn/engines/reference/p1/ar_official/models" = ["engines/reference/p1/ar_official/models/resnet.py"]
+"share/medunlearn/engines/reference/p1/official" = ["engines/reference/p1/official/LICENSE"]
+"share/medunlearn/engines/reference/p1/official/attacks" = ["engines/reference/p1/official/attacks/step.py"]
+"share/medunlearn/engines/reference/p1/official/models" = ["engines/reference/p1/official/models/resnet.py", "engines/reference/p1/official/models/vgg.py"]
+"share/medunlearn/engines/reference/p5" = ["engines/reference/p5/ar_coefficients.json", "engines/reference/p5/ar_generation.py", "engines/reference/p5/classwise_metrics.py", "engines/reference/p5/experiment.py"]
+"share/medunlearn/engines/reference/p5/ar_official" = ["engines/reference/p5/ar_official/LICENSE"]
+"share/medunlearn/engines/reference/p5/ar_official/models" = ["engines/reference/p5/ar_official/models/resnet.py"]
+"share/medunlearn/engines/reference/p5/official" = ["engines/reference/p5/official/LICENSE"]
+"share/medunlearn/engines/reference/p5/official/attacks" = ["engines/reference/p5/official/attacks/step.py"]
+"share/medunlearn/engines/reference/p5/official/models" = ["engines/reference/p5/official/models/resnet.py", "engines/reference/p5/official/models/vgg.py"]
+"share/medunlearn/engines/reference/tap" = ["engines/reference/tap/ar_coefficients.json", "engines/reference/tap/ar_generation.py", "engines/reference/tap/classwise_metrics.py", "engines/reference/tap/experiment.py", "engines/reference/tap/tap_experiment.py"]
+"share/medunlearn/engines/reference/tap/ar_official" = ["engines/reference/tap/ar_official/LICENSE"]
+"share/medunlearn/engines/reference/tap/ar_official/models" = ["engines/reference/tap/ar_official/models/resnet.py"]
+"share/medunlearn/engines/reference/tap/official" = ["engines/reference/tap/official/LICENSE"]
+"share/medunlearn/engines/reference/tap/official/attacks" = ["engines/reference/tap/official/attacks/step.py"]
+"share/medunlearn/engines/reference/tap/official/models" = ["engines/reference/tap/official/models/resnet.py", "engines/reference/tap/official/models/vgg.py"]
+"share/medunlearn/engines/reference/tap/tap_official" = ["engines/reference/tap/tap_official/LICENSE"]
+"share/medunlearn/engines/reference/tap/tap_official/poison_evaluation/models" = ["engines/reference/tap/tap_official/poison_evaluation/models/resnet.py"]
+"share/medunlearn/engines/reference/tap/tap_official/village/clients" = ["engines/reference/tap/tap_official/village/clients/models.py"]
+"share/medunlearn/engines/reference/tap/tap_official/village/materials" = ["engines/reference/tap/tap_official/village/materials/diff_data_augmentation.py"]
+"share/medunlearn/data_tools" = ["data_tools/filter_rare_classes.py", "data_tools/filter_single_annotation.py", "data_tools/loss_weights.py", "data_tools/prepare_splits.py"]
+"share/medunlearn/third_party/GUE" = ["third_party/GUE/gue.py", "third_party/GUE/utils.py"]
+"share/medunlearn/third_party/GUE/models" = ["third_party/GUE/models/__init__.py", "third_party/GUE/models/densenet.py", "third_party/GUE/models/resnet.py", "third_party/GUE/models/unet.py", "third_party/GUE/models/vgg.py", "third_party/GUE/models/wideresnet.py"]
+"share/medunlearn/third_party/Unlearn2" = ["third_party/Unlearn2/LICENSE"]
+"share/medunlearn/third_party/Unlearn2/REM/attacks" = ["third_party/Unlearn2/REM/attacks/pgd_attacker.py", "third_party/Unlearn2/REM/attacks/robust_workers.py"]
+"share/medunlearn/third_party/Unlearn2/SEM/attacks" = ["third_party/Unlearn2/SEM/attacks/stable_workers.py"]
+"share/medunlearn/reported_results" = ["reported_results/aggregates.json", "reported_results/class_composition_common.csv", "reported_results/class_composition_xray_fixed.csv", "reported_results/classwise.csv", "reported_results/comparison.csv", "reported_results/policy.json"]

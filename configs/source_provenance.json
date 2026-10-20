@@ -1,0 +1,260 @@
+{
+  "engines/reference/p1/experiment.py": {
+    "original_sha256": "31535843be80bba1217efda1f52b436fc47ee7b3ba12455af455ec3deeaa86eb",
+    "release_sha256": "1ef35954f7fb3a609b2ab5dfa97fe46e155360a0dbb0fcad704fc82e8a263ed3",
+    "adaptation": "Configurable CIFAR path and host provenance only"
+  },
+  "engines/reference/p1/classwise_metrics.py": {
+    "original_sha256": "291533a13903eba58218a74b358ab7f3edca36452871f411ed363c6724787024",
+    "release_sha256": "291533a13903eba58218a74b358ab7f3edca36452871f411ed363c6724787024",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/p1/ar_generation.py": {
+    "original_sha256": "3d8c6e9df103737eb24a006cfe42e4eb20afb8b8a260ba6cd78b301771a60634",
+    "release_sha256": "3d8c6e9df103737eb24a006cfe42e4eb20afb8b8a260ba6cd78b301771a60634",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/p1/ar_coefficients.json": {
+    "original_sha256": "d41dd6bf74f5df260341ebc0c7ce05790a6df84cace7d35d6cdfc1f3c66db523",
+    "release_sha256": "d41dd6bf74f5df260341ebc0c7ce05790a6df84cace7d35d6cdfc1f3c66db523",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/p1/official/LICENSE": {
+    "original_sha256": "50d4b1a2c6360f03e3c84fd1c5a3623a45edf99b84ef2443ecec6cc58f2ea490",
+    "release_sha256": "50d4b1a2c6360f03e3c84fd1c5a3623a45edf99b84ef2443ecec6cc58f2ea490",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/p1/official/attacks/step.py": {
+    "original_sha256": "13483342abda0a827812c97b69cfb34252b8fe3276eaed35300459e8dc032ee0",
+    "release_sha256": "d713a06c2b07d64fc99ce8b712c994a31cbbb3b233c2e8e0a6de0d34ef9089b2",
+    "adaptation": "Unchanged source; trailing whitespace normalized"
+  },
+  "engines/reference/p1/official/models/resnet.py": {
+    "original_sha256": "c419c5f224a855b5566590013f1590695c51e22a11808a21b843cfb03f303663",
+    "release_sha256": "ff86759b9d85b491d399f963198ad1208c2fae92cf5982341615a245f847562f",
+    "adaptation": "Unchanged source; trailing whitespace normalized"
+  },
+  "engines/reference/p1/official/models/vgg.py": {
+    "original_sha256": "2a04d113a5d0ce6ed429bf93c193a96bb940cbe7342d6a333ac673615c46b95c",
+    "release_sha256": "020bed44ecac0c320ef0cef922b2b5541eb64af51230850a8c9abefc0474d42f",
+    "adaptation": "Unchanged source; trailing whitespace normalized"
+  },
+  "engines/reference/p1/ar_official/LICENSE": {
+    "original_sha256": "c3eafa51ce6482d6d397c711d65d0701d9c961d5938cf021a0abbcb897f88b06",
+    "release_sha256": "c3eafa51ce6482d6d397c711d65d0701d9c961d5938cf021a0abbcb897f88b06",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/p1/ar_official/models/resnet.py": {
+    "original_sha256": "0be072b260e7e4b5b1b42a1272f116d4b5411b9b429f79f9f90ad17e9556a3ee",
+    "release_sha256": "528fef32be3e328931b9139925c58543b8fb46cb98147d753a0efaf860934e3a",
+    "adaptation": "Unchanged source; trailing whitespace normalized"
+  },
+  "engines/reference/p5/experiment.py": {
+    "original_sha256": "cc502982b2f33b64e24ec98118d42a99cb01fb42e626ce99763d1a1063ab213f",
+    "release_sha256": "9abaf54c4c800416deb62777b1a501d21540656045eddbedf66bfc29a6c7fc68",
+    "adaptation": "Configurable CIFAR path and host provenance only"
+  },
+  "engines/reference/p5/classwise_metrics.py": {
+    "original_sha256": "291533a13903eba58218a74b358ab7f3edca36452871f411ed363c6724787024",
+    "release_sha256": "291533a13903eba58218a74b358ab7f3edca36452871f411ed363c6724787024",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/p5/ar_generation.py": {
+    "original_sha256": "3d8c6e9df103737eb24a006cfe42e4eb20afb8b8a260ba6cd78b301771a60634",
+    "release_sha256": "3d8c6e9df103737eb24a006cfe42e4eb20afb8b8a260ba6cd78b301771a60634",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/p5/ar_coefficients.json": {
+    "original_sha256": "d41dd6bf74f5df260341ebc0c7ce05790a6df84cace7d35d6cdfc1f3c66db523",
+    "release_sha256": "d41dd6bf74f5df260341ebc0c7ce05790a6df84cace7d35d6cdfc1f3c66db523",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/p5/official/LICENSE": {
+    "original_sha256": "50d4b1a2c6360f03e3c84fd1c5a3623a45edf99b84ef2443ecec6cc58f2ea490",
+    "release_sha256": "50d4b1a2c6360f03e3c84fd1c5a3623a45edf99b84ef2443ecec6cc58f2ea490",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/p5/official/attacks/step.py": {
+    "original_sha256": "13483342abda0a827812c97b69cfb34252b8fe3276eaed35300459e8dc032ee0",
+    "release_sha256": "d713a06c2b07d64fc99ce8b712c994a31cbbb3b233c2e8e0a6de0d34ef9089b2",
+    "adaptation": "Unchanged source; trailing whitespace normalized"
+  },
+  "engines/reference/p5/official/models/resnet.py": {
+    "original_sha256": "c419c5f224a855b5566590013f1590695c51e22a11808a21b843cfb03f303663",
+    "release_sha256": "ff86759b9d85b491d399f963198ad1208c2fae92cf5982341615a245f847562f",
+    "adaptation": "Unchanged source; trailing whitespace normalized"
+  },
+  "engines/reference/p5/official/models/vgg.py": {
+    "original_sha256": "2a04d113a5d0ce6ed429bf93c193a96bb940cbe7342d6a333ac673615c46b95c",
+    "release_sha256": "020bed44ecac0c320ef0cef922b2b5541eb64af51230850a8c9abefc0474d42f",
+    "adaptation": "Unchanged source; trailing whitespace normalized"
+  },
+  "engines/reference/p5/ar_official/LICENSE": {
+    "original_sha256": "c3eafa51ce6482d6d397c711d65d0701d9c961d5938cf021a0abbcb897f88b06",
+    "release_sha256": "c3eafa51ce6482d6d397c711d65d0701d9c961d5938cf021a0abbcb897f88b06",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/p5/ar_official/models/resnet.py": {
+    "original_sha256": "0be072b260e7e4b5b1b42a1272f116d4b5411b9b429f79f9f90ad17e9556a3ee",
+    "release_sha256": "528fef32be3e328931b9139925c58543b8fb46cb98147d753a0efaf860934e3a",
+    "adaptation": "Unchanged source; trailing whitespace normalized"
+  },
+  "engines/reference/ar/experiment.py": {
+    "original_sha256": "d5bf5219f244e23d6e2da21bb77a6b1ac1ed051a073fbdb6d3c47200d2979051",
+    "release_sha256": "8593e43b3f4dddb4aaf560903001e3806e65fd454494a0c990ef01b40e5ec758",
+    "adaptation": "Configurable CIFAR path and host provenance only"
+  },
+  "engines/reference/ar/classwise_metrics.py": {
+    "original_sha256": "291533a13903eba58218a74b358ab7f3edca36452871f411ed363c6724787024",
+    "release_sha256": "291533a13903eba58218a74b358ab7f3edca36452871f411ed363c6724787024",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/ar/ar_generation.py": {
+    "original_sha256": "3d8c6e9df103737eb24a006cfe42e4eb20afb8b8a260ba6cd78b301771a60634",
+    "release_sha256": "3d8c6e9df103737eb24a006cfe42e4eb20afb8b8a260ba6cd78b301771a60634",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/ar/ar_coefficients.json": {
+    "original_sha256": "d41dd6bf74f5df260341ebc0c7ce05790a6df84cace7d35d6cdfc1f3c66db523",
+    "release_sha256": "d41dd6bf74f5df260341ebc0c7ce05790a6df84cace7d35d6cdfc1f3c66db523",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/ar/official/LICENSE": {
+    "original_sha256": "50d4b1a2c6360f03e3c84fd1c5a3623a45edf99b84ef2443ecec6cc58f2ea490",
+    "release_sha256": "50d4b1a2c6360f03e3c84fd1c5a3623a45edf99b84ef2443ecec6cc58f2ea490",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/ar/official/attacks/step.py": {
+    "original_sha256": "13483342abda0a827812c97b69cfb34252b8fe3276eaed35300459e8dc032ee0",
+    "release_sha256": "d713a06c2b07d64fc99ce8b712c994a31cbbb3b233c2e8e0a6de0d34ef9089b2",
+    "adaptation": "Unchanged source; trailing whitespace normalized"
+  },
+  "engines/reference/ar/official/models/resnet.py": {
+    "original_sha256": "c419c5f224a855b5566590013f1590695c51e22a11808a21b843cfb03f303663",
+    "release_sha256": "ff86759b9d85b491d399f963198ad1208c2fae92cf5982341615a245f847562f",
+    "adaptation": "Unchanged source; trailing whitespace normalized"
+  },
+  "engines/reference/ar/official/models/vgg.py": {
+    "original_sha256": "2a04d113a5d0ce6ed429bf93c193a96bb940cbe7342d6a333ac673615c46b95c",
+    "release_sha256": "020bed44ecac0c320ef0cef922b2b5541eb64af51230850a8c9abefc0474d42f",
+    "adaptation": "Unchanged source; trailing whitespace normalized"
+  },
+  "engines/reference/ar/ar_official/LICENSE": {
+    "original_sha256": "c3eafa51ce6482d6d397c711d65d0701d9c961d5938cf021a0abbcb897f88b06",
+    "release_sha256": "c3eafa51ce6482d6d397c711d65d0701d9c961d5938cf021a0abbcb897f88b06",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/ar/ar_official/models/resnet.py": {
+    "original_sha256": "0be072b260e7e4b5b1b42a1272f116d4b5411b9b429f79f9f90ad17e9556a3ee",
+    "release_sha256": "528fef32be3e328931b9139925c58543b8fb46cb98147d753a0efaf860934e3a",
+    "adaptation": "Unchanged source; trailing whitespace normalized"
+  },
+  "engines/reference/tap/experiment.py": {
+    "original_sha256": "31535843be80bba1217efda1f52b436fc47ee7b3ba12455af455ec3deeaa86eb",
+    "release_sha256": "1ef35954f7fb3a609b2ab5dfa97fe46e155360a0dbb0fcad704fc82e8a263ed3",
+    "adaptation": "Configurable CIFAR path and host provenance only"
+  },
+  "engines/reference/tap/tap_experiment.py": {
+    "original_sha256": "9ae471d0aa1ad09469cea9fe46915d021bd819f2fd39ce476c85513c260fac96",
+    "release_sha256": "c871304590f768d750cae8a26cc3e62d0a2de4f65ef095f1d668bae824b646ac",
+    "adaptation": "Configurable CIFAR path and host provenance only"
+  },
+  "engines/reference/tap/classwise_metrics.py": {
+    "original_sha256": "291533a13903eba58218a74b358ab7f3edca36452871f411ed363c6724787024",
+    "release_sha256": "291533a13903eba58218a74b358ab7f3edca36452871f411ed363c6724787024",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/tap/ar_generation.py": {
+    "original_sha256": "3d8c6e9df103737eb24a006cfe42e4eb20afb8b8a260ba6cd78b301771a60634",
+    "release_sha256": "3d8c6e9df103737eb24a006cfe42e4eb20afb8b8a260ba6cd78b301771a60634",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/tap/ar_coefficients.json": {
+    "original_sha256": "d41dd6bf74f5df260341ebc0c7ce05790a6df84cace7d35d6cdfc1f3c66db523",
+    "release_sha256": "d41dd6bf74f5df260341ebc0c7ce05790a6df84cace7d35d6cdfc1f3c66db523",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/tap/official/LICENSE": {
+    "original_sha256": "50d4b1a2c6360f03e3c84fd1c5a3623a45edf99b84ef2443ecec6cc58f2ea490",
+    "release_sha256": "50d4b1a2c6360f03e3c84fd1c5a3623a45edf99b84ef2443ecec6cc58f2ea490",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/tap/official/attacks/step.py": {
+    "original_sha256": "13483342abda0a827812c97b69cfb34252b8fe3276eaed35300459e8dc032ee0",
+    "release_sha256": "d713a06c2b07d64fc99ce8b712c994a31cbbb3b233c2e8e0a6de0d34ef9089b2",
+    "adaptation": "Unchanged source; trailing whitespace normalized"
+  },
+  "engines/reference/tap/official/models/resnet.py": {
+    "original_sha256": "c419c5f224a855b5566590013f1590695c51e22a11808a21b843cfb03f303663",
+    "release_sha256": "ff86759b9d85b491d399f963198ad1208c2fae92cf5982341615a245f847562f",
+    "adaptation": "Unchanged source; trailing whitespace normalized"
+  },
+  "engines/reference/tap/official/models/vgg.py": {
+    "original_sha256": "2a04d113a5d0ce6ed429bf93c193a96bb940cbe7342d6a333ac673615c46b95c",
+    "release_sha256": "020bed44ecac0c320ef0cef922b2b5541eb64af51230850a8c9abefc0474d42f",
+    "adaptation": "Unchanged source; trailing whitespace normalized"
+  },
+  "engines/reference/tap/ar_official/LICENSE": {
+    "original_sha256": "c3eafa51ce6482d6d397c711d65d0701d9c961d5938cf021a0abbcb897f88b06",
+    "release_sha256": "c3eafa51ce6482d6d397c711d65d0701d9c961d5938cf021a0abbcb897f88b06",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/tap/ar_official/models/resnet.py": {
+    "original_sha256": "0be072b260e7e4b5b1b42a1272f116d4b5411b9b429f79f9f90ad17e9556a3ee",
+    "release_sha256": "528fef32be3e328931b9139925c58543b8fb46cb98147d753a0efaf860934e3a",
+    "adaptation": "Unchanged source; trailing whitespace normalized"
+  },
+  "engines/reference/tap/tap_official/LICENSE": {
+    "original_sha256": "f2c5dd9c6229b4af0a5b341e2facf268adf272e58c747305c8238ca141f7982d",
+    "release_sha256": "f2c5dd9c6229b4af0a5b341e2facf268adf272e58c747305c8238ca141f7982d",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/tap/tap_official/poison_evaluation/models/resnet.py": {
+    "original_sha256": "7bcbe6bba6544645a5da6037bf3e5ddf90e97d0b3ef4183be90e17a0443b4510",
+    "release_sha256": "7bcbe6bba6544645a5da6037bf3e5ddf90e97d0b3ef4183be90e17a0443b4510",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/tap/tap_official/village/clients/models.py": {
+    "original_sha256": "112772734a776910e1ed0c2966714154393dbce67dcaf9ea567a7953db8b6c60",
+    "release_sha256": "112772734a776910e1ed0c2966714154393dbce67dcaf9ea567a7953db8b6c60",
+    "adaptation": "Unchanged source"
+  },
+  "engines/reference/tap/tap_official/village/materials/diff_data_augmentation.py": {
+    "original_sha256": "93eb83957a570668a2cf1a113191895d449fe3af0e5b40560521295b5a8aa20c",
+    "release_sha256": "93eb83957a570668a2cf1a113191895d449fe3af0e5b40560521295b5a8aa20c",
+    "adaptation": "Unchanged source"
+  },
+  "engines/common/benchmark.py": {
+    "original_sha256": "04dda837ec9181e607236ab6ca539cd41a154239f6c42dc20f00e0063d3fd921",
+    "release_sha256": "04dda837ec9181e607236ab6ca539cd41a154239f6c42dc20f00e0063d3fd921",
+    "adaptation": "Remove unused search/old GUE dispatch and absolute metadata path; final training/generation numerical code retained"
+  },
+  "engines/common/benchmark_cifar_sgd.py": {
+    "original_sha256": "2afc8a754249fb869a2986b65f35b9a269f4d936d0ba4be7e7847e03294b00b2",
+    "release_sha256": "d33257b67ebf006e45dda1de50f590dab7d590cbb93ff38b24784e0d04318610",
+    "adaptation": "Remove unused search/old GUE dispatch and absolute metadata path; final training/generation numerical code retained"
+  },
+  "engines/common/classwise_metrics.py": {
+    "original_sha256": "291533a13903eba58218a74b358ab7f3edca36452871f411ed363c6724787024",
+    "release_sha256": "291533a13903eba58218a74b358ab7f3edca36452871f411ed363c6724787024",
+    "adaptation": "Remove unused search/old GUE dispatch and absolute metadata path; final training/generation numerical code retained"
+  },
+  "engines/common/generate_simple.py": {
+    "original_sha256": "b43e3bcbdf59ca0b966eec60db373f96fcf60065252171a397f3f9eef05d15ed",
+    "release_sha256": "dd49aa34e08e4a0add02366b7e21406a34da43042860e18d3928735c40bf88e8",
+    "adaptation": "Remove unused search/old GUE dispatch and absolute metadata path; final training/generation numerical code retained"
+  },
+  "engines/common/generate_advanced.py": {
+    "original_sha256": "90f3b6d1635efdbc60f6a24dc520450e54b9f23678301bf4d4396e7f65a2a0ee",
+    "release_sha256": "11a5a7433b554c3ace5eeb2b98472a79d07a105da172fd20ec5a8b3e2ea60b7b",
+    "adaptation": "Remove unused search/old GUE dispatch and absolute metadata path; final training/generation numerical code retained"
+  },
+  "engines/common/benchmark_fixed.py": {
+    "release_sha256": "6f2de6ed1bf107706bc74834fa0865576d9d7887349d00c97836448802bf6124",
+    "adaptation": "Final ordinary-CE X-ray(fixed) support from the reviewed staging transformation"
+  },
+  "engines/common/loss_weights.py": {
+    "release_sha256": "196394846f50c3caaec6afaceaeb353aa51af7514d5d3a0effec6fa868b1ab2e",
+    "adaptation": "Final ordinary-CE X-ray(fixed) support from the reviewed staging transformation"
+  }
+}
