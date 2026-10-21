@@ -157,7 +157,7 @@ def plot_figures(output,rows,main):
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
     import numpy as np
-    selected=[r for r in rows if r.get('primary',True)]
+    selected=[r for r in rows if r.get('primary',True) not in [False,'False','false','0']]
     base={(r['dataset'],r['method']):r for r in main}
     for metric,label,clean_metric in [('accuracy_pct','Accuracy (%)','clean_accuracy_pct'),
             ('balanced_accuracy_pct','Balanced accuracy (%)','clean_balanced_accuracy_pct'),
@@ -170,8 +170,9 @@ def plot_figures(output,rows,main):
                 values={0:number(b.get(clean_metric)),100:number(b.get(metric))}
                 for r in selected:
                     if (r['dataset'],r['method'])!=(dataset,method):continue
-                    ratio=r.get('target_ratio_pct',r.get('ratio'))
-                    if ratio is not None:values[int(ratio)]=float(r[metric])
+                    if r.get('mode')=='aa' or r.get('aa_protocol'):continue
+                    ratio=r.get('target_ratio_pct') or r.get('ratio')
+                    if ratio not in [None,'']:values[int(ratio)]=float(r[metric])
                 x=[0,20,40,60,80,100]
                 axis.plot(x,[values.get(i,np.nan) for i in x],marker='o',markersize=3,label=method)
             axis.set_title(dataset);axis.set_ylim(0,105);axis.set_xlabel('Poisoned training samples (%)');axis.set_ylabel(label)
@@ -187,11 +188,11 @@ def plot_figures(output,rows,main):
                 p=resolve(dataset,method);b=base[dataset,method]
                 plain.append(number(b.get(metric)))
                 candidate=next((r for r in selected if r['dataset']==dataset and r['method']==method
-                    and (r.get('mode')=='aa' or 'aa_protocol' in r) and r.get('condition')!='CLEAN'),None)
+                    and (r.get('mode')=='aa' or r.get('aa_protocol')) and r.get('condition')!='CLEAN'),None)
                 aa.append(float(candidate[metric]) if candidate else np.nan)
                 c=next((r for r in selected if r['dataset']==dataset and
                     ((p['scope']=='paper_aligned' and r.get('family')==p['family'] and r.get('condition')=='CLEAN') or
-                     (p['scope']=='common' and r['method']==p['clean_baseline'] and 'aa_protocol' in r))),None)
+                     (p['scope']=='common' and r['method']==p['clean_baseline'] and r.get('aa_protocol')))),None)
                 control.append(float(c[metric]) if c else np.nan)
             x=np.arange(len(POLICY['methods']))
             axis.bar(x-.25,plain,.25,label='UE');axis.bar(x,aa,.25,label='UE+AA');axis.bar(x+.25,control,.25,label='Matched CLEAN+AA')

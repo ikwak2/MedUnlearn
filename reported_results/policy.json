@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-21T08:10:35+09:00",
+  "updated_at": "2026-10-22T08:34:22+09:00",
   "requested_policy": "Paper-aligned protocols where available; common protocols for GUE and other methods",
   "paper_aligned_methods": [
     "HYPO_P1",
@@ -7,7 +7,7 @@
     "AR",
     "T-AP"
   ],
-  "completed_ue": 47,
+  "completed_ue": 48,
   "planned_ue": 48,
   "checkpoint_policy": "Preserve the previously fixed protocol-specific selections; no test-based row choice",
   "clean_policy": "Each row has its own matched CLEAN; LSPAUG uses CLEAN_AUG",

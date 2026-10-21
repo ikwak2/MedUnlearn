@@ -383,18 +383,18 @@ X-ray(fixed),SEM,validation_best,common,CLEAN,No Finding,5844,81.38261464750171,
 X-ray(fixed),SEM,validation_best,common,CLEAN,Nodule,291,3.0927835051546393,70.44673539518901,-67.35395189003437
 X-ray(fixed),SEM,validation_best,common,CLEAN,Pleural_Thickening,100,1.0,0.0,1.0
 X-ray(fixed),SEM,validation_best,common,CLEAN,Pneumothorax,127,0.0,0.0,0.0
-X-ray(fixed),GUE,validation_best,common,CLEAN,Atelectasis,387,,,
-X-ray(fixed),GUE,validation_best,common,CLEAN,Cardiomegaly,192,,,
-X-ray(fixed),GUE,validation_best,common,CLEAN,Consolidation,126,,,
-X-ray(fixed),GUE,validation_best,common,CLEAN,Effusion,326,,,
-X-ray(fixed),GUE,validation_best,common,CLEAN,Emphysema,66,,,
-X-ray(fixed),GUE,validation_best,common,CLEAN,Fibrosis,90,,,
-X-ray(fixed),GUE,validation_best,common,CLEAN,Infiltration,682,,,
-X-ray(fixed),GUE,validation_best,common,CLEAN,Mass,186,,,
-X-ray(fixed),GUE,validation_best,common,CLEAN,No Finding,5844,,,
-X-ray(fixed),GUE,validation_best,common,CLEAN,Nodule,291,,,
-X-ray(fixed),GUE,validation_best,common,CLEAN,Pleural_Thickening,100,,,
-X-ray(fixed),GUE,validation_best,common,CLEAN,Pneumothorax,127,,,
+X-ray(fixed),GUE,validation_best,common,CLEAN,Atelectasis,387,9.043927648578812,9.30232558139535,-0.258397932816537
+X-ray(fixed),GUE,validation_best,common,CLEAN,Cardiomegaly,192,1.0416666666666665,2.083333333333333,-1.0416666666666665
+X-ray(fixed),GUE,validation_best,common,CLEAN,Consolidation,126,4.761904761904762,1.5873015873015872,3.1746031746031744
+X-ray(fixed),GUE,validation_best,common,CLEAN,Effusion,326,5.521472392638037,9.202453987730062,-3.680981595092024
+X-ray(fixed),GUE,validation_best,common,CLEAN,Emphysema,66,0.0,0.0,0.0
+X-ray(fixed),GUE,validation_best,common,CLEAN,Fibrosis,90,4.444444444444445,2.2222222222222223,2.2222222222222223
+X-ray(fixed),GUE,validation_best,common,CLEAN,Infiltration,682,5.571847507331378,26.53958944281525,-20.96774193548387
+X-ray(fixed),GUE,validation_best,common,CLEAN,Mass,186,6.451612903225806,0.5376344086021506,5.913978494623655
+X-ray(fixed),GUE,validation_best,common,CLEAN,No Finding,5844,81.38261464750171,60.76317590691307,20.61943874058865
+X-ray(fixed),GUE,validation_best,common,CLEAN,Nodule,291,3.0927835051546393,7.560137457044673,-4.467353951890034
+X-ray(fixed),GUE,validation_best,common,CLEAN,Pleural_Thickening,100,1.0,3.0,-1.9999999999999998
+X-ray(fixed),GUE,validation_best,common,CLEAN,Pneumothorax,127,0.0,4.724409448818897,-4.724409448818897
 X-ray(fixed),AR,fixed_final,paper_aligned,AR:fixed_final:CLEAN,Atelectasis,387,0.516795865633075,3.6175710594315245,-3.1007751937984493
 X-ray(fixed),AR,fixed_final,paper_aligned,AR:fixed_final:CLEAN,Cardiomegaly,192,4.166666666666666,0.0,4.166666666666666
 X-ray(fixed),AR,fixed_final,paper_aligned,AR:fixed_final:CLEAN,Consolidation,126,0.0,2.380952380952381,-2.380952380952381

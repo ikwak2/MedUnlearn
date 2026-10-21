@@ -1,0 +1,9 @@
+{
+  "figure5_retraining_completed": 144,
+  "figure5_retraining_planned": 192,
+  "figure5_endpoint_conditions": 96,
+  "figure6_training_completed": 54,
+  "figure6_training_planned": 72,
+  "scope": "Final main protocols only; archival common P1/P5/AR/T-AP excluded",
+  "checkpoint_policy": "Use primary=True; retain other selections as sensitivity results"
+}

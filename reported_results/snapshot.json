@@ -1,0 +1,31 @@
+{
+  "updated_at": "2026-10-22T08:36:44+09:00",
+  "main_completed": 48,
+  "main_planned": 48,
+  "figures56": {
+    "figure5_retraining_completed": 144,
+    "figure5_retraining_planned": 192,
+    "figure5_endpoint_conditions": 96,
+    "figure6_training_completed": 54,
+    "figure6_training_planned": 72,
+    "scope": "Final main protocols only; archival common P1/P5/AR/T-AP excluded",
+    "checkpoint_policy": "Use primary=True; retain other selections as sensitivity results"
+  },
+  "source_sha256": {
+    "main_protocol_20261021/policy.json": "9bd2f6fdcdcd5e2da6c41c77eb0e7c0fc1c4fd05fc9ade8ba743639df16cd010",
+    "main_protocol_20261021/comparison.csv": "ae660653eeffd2b32403f8ed5a2232b35d2876e1a883b4c751485870ace24ae3",
+    "main_protocol_20261021/classwise.csv": "8dbc43af47274d2cb05778f4bf8e8a4a59ec47d1128663e2935045cf1f74f83c",
+    "classwise_protection_20261021/aggregates.json": "e447cacba8eb788fb8b2e14e614896250a669b94ba16f4da28da3e2c29dd668c",
+    "paper_reference/classwise_protection_20261021/aggregates.json": "791ace239289220e2085b2793aabc4949624ae7497d44c1294252748dd306f3e",
+    "paper_reference/comparison.csv": "5d03cb09d5215acb0f7a9b1403d3ee0983f562326542c797b792b1e99e00cc2d",
+    "reference_figures56_20261021/comparison.csv": "add380d9919fd0726d6e76b299fe4b1deec158bad9b482b5564e3f25e8d5f18b",
+    "reference_figures56_20261021/classwise.csv": "46314697c01715017a7e9bbefd34b533f39aeb5e754413acaee90e44d6f76275",
+    "noise_ratio_compb_20261020/comparison.csv": "c5f06fd3b6cf7df5c07ac636ed7dbba182eed2417667f748f969eb62d747bf53",
+    "noise_ratio_compb_20261020/classwise.csv": "7ff1c2f027d1644134c6abaf1ecf6360e33271cb9b22137ccae1ac6fe165ab57",
+    "aa_compd_20261020/comparison.csv": "bb77ff410073364c0a628713f351855922ad4af4a89223921632a5326028fb82",
+    "aa_compd_20261020/classwise.csv": "643e76c0248ff9959cd42b45b3cfe07af1af06db1447ddb6f1e4d6c88d9b3c43",
+    "revision_analysis_20261020/ssim.csv": "bc30daf4437cfeb5af015cc627ca6975ffb3c2b6bdf290ffe43e5846cb7b0b8f",
+    "revision_analysis_20261020/cost.csv": "86a641d4b49c9884efff7905ff64e76d31600770548bb24058a735edc5cdc7ab"
+  },
+  "privacy": "Anonymous class aggregates only; no images, sample IDs or server runtime metadata"
+}

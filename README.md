@@ -26,7 +26,9 @@ python -m medunlearn analyze --reported --output outputs/reported_analysis
 
 Run commands from this repository root, or install with `python -m pip install .` to use the `medunlearn` command elsewhere. The numerical environments use Python3.10; Python3.12+ is excluded because the native PyTorch2.0.1 environment is required. [`docs/VALIDATION.md`](docs/VALIDATION.md) records the checks actually performed.
 
-[`reported_results/`](reported_results/) contains anonymous class aggregates and the current revision snapshot: **47/48 UE conditions**, with X-ray(fixed) GUE pending. Missing results are not zero. Update this snapshot when the remaining run is complete. This repository does not distribute images, patient/sample identifiers, individual predictions, trained checkpoints, server queues, or incident logs.
+[`reported_results/`](reported_results/README.md) contains the **48/48 completed UE conditions**, their matched CLEAN metrics, and anonymous class aggregates. X-ray(fixed) GUE is now included: **45.60% accuracy, 10.63% balanced accuracy**, selected at epoch25. The accompanying Figure5/6 snapshot contains completed conditions only; gaps remain for running experiments. This repository does not distribute images, patient/sample identifiers, individual predictions, trained checkpoints, server queues, or incident logs.
+
+[`reported_results/selection_sensitivity.csv`](reported_results/selection_sensitivity.csv) retains both selection-labelled native results. The [class analyses](reported_results/analysis/) and [Figure5/6 previews](reported_results/figures56/) were regenerated from the anonymous snapshot. [`reported_results/auxiliary/`](reported_results/auxiliary/) contains completed common-method SSIM and generation-cost measurements; paper-aligned P1/P5/AR/T-AP measurements are outside that auxiliary snapshot, so these are partial final-protocol tables.
 
 ## Prepare the data
 
