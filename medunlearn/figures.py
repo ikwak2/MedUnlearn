@@ -153,53 +153,82 @@ def summarize_figures(workspace,output):
 
 
 def plot_figures(output,rows,main):
+    """Render the final paper's Figure 5/6 layouts from anonymous metric rows."""
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
     import numpy as np
-    selected=[r for r in rows if r.get('primary',True) not in [False,'False','false','0']]
-    base={(r['dataset'],r['method']):r for r in main}
-    for metric,label,clean_metric in [('accuracy_pct','Accuracy (%)','clean_accuracy_pct'),
-            ('balanced_accuracy_pct','Balanced accuracy (%)','clean_balanced_accuracy_pct'),
-            ('macro_f1_pct','Macro-F1 (%)','clean_macro_f1_pct')]:
-        fig,axes=plt.subplots(2,2,figsize=(15,10),sharey=True)
-        for axis,dataset in zip(axes.flat,POLICY['datasets']):
-            for method in POLICY['methods']:
-                b=base[dataset,method]
-                def number(value):return float(value) if value not in ['',None] else np.nan
-                values={0:number(b.get(clean_metric)),100:number(b.get(metric))}
-                for r in selected:
-                    if (r['dataset'],r['method'])!=(dataset,method):continue
-                    if r.get('mode')=='aa' or r.get('aa_protocol'):continue
+    output=Path(output);output.mkdir(parents=True,exist_ok=True)
+    METHODS=list(POLICY['methods'])
+    DATASETS=['CIFAR-10','X-ray(fixed)','MRI4','MRI15']
+    LABELS={m:m.replace('HYPO_','HYPO ') for m in METHODS}
+    LABELS.update(LSPNormal='LSP Normal',LSPAUG='LSP AUG')
+    COLORS={m:plt.get_cmap('tab20')(i) for m,i in zip(METHODS,[0,2,4,6,8,10,12,14,16,18,1,5])}
+    plt.rcParams.update({'font.family':'DejaVu Sans','font.size':13,'pdf.fonttype':42,
+        'axes.spines.top':False,'axes.spines.right':False,'axes.titlesize':16,
+        'axes.labelsize':14,'xtick.labelsize':12,'ytick.labelsize':12,'legend.fontsize':12})
+    def display(dataset):return 'X-ray' if dataset=='X-ray(fixed)' else dataset
+    def save(fig,stem):
+        for extension in ['pdf','png']:fig.savefig(output/(stem+'.'+extension),dpi=300,bbox_inches='tight',pad_inches=.07)
+        plt.close(fig)
+    main={(r['dataset'],r['method']):r for r in main}
+    primary=[]
+    for raw in rows:
+        if raw.get('primary',True) in [False,'False','false','0']:continue
+        row=dict(raw)
+        row['mode']=row.get('mode') or ('aa' if row.get('aa_protocol') else 'ratio')
+        row['protocol_source']=row.get('protocol_source') or ('paper_aligned' if row.get('family') else 'common')
+        primary.append(row)
+    for metric,name,axislabel in [('accuracy_pct','accuracy','Accuracy (%)'),
+                                 ('balanced_accuracy_pct','balanced_accuracy','Balanced accuracy (%)'),
+                                 ('macro_f1_pct','macro_f1','Macro-F1 (%)')]:
+        fig,axes=plt.subplots(2,2,figsize=(7.4,6.5))
+        plotted=[]
+        for ax,dataset in zip(axes.flat,DATASETS):
+            for method in METHODS:
+                row=main[dataset,method]
+                values={0:float(row['clean_'+metric]),100:float(row[metric])}
+                for r in primary:
+                    if (r['dataset'],r['method'],r['mode'])!=(dataset,method,'ratio'):continue
                     ratio=r.get('target_ratio_pct') or r.get('ratio')
                     if ratio not in [None,'']:values[int(ratio)]=float(r[metric])
-                x=[0,20,40,60,80,100]
-                axis.plot(x,[values.get(i,np.nan) for i in x],marker='o',markersize=3,label=method)
-            axis.set_title(dataset);axis.set_ylim(0,105);axis.set_xlabel('Poisoned training samples (%)');axis.set_ylabel(label)
-        axes.flat[-1].legend(fontsize=6,ncol=2)
-        fig.suptitle('Figure5 | method-specific main protocols; gaps indicate unfinished conditions')
-        fig.tight_layout();stem=metric.replace('_pct','')
-        for extension in ['pdf','png']:fig.savefig(output/('figure5_'+stem+'.'+extension),dpi=190,bbox_inches='tight')
-        plt.close(fig)
-        fig,axes=plt.subplots(2,2,figsize=(20,12),sharey=True)
-        for axis,dataset in zip(axes.flat,POLICY['datasets']):
-            plain=[];aa=[];control=[]
-            for method in POLICY['methods']:
-                p=resolve(dataset,method);b=base[dataset,method]
-                plain.append(number(b.get(metric)))
-                candidate=next((r for r in selected if r['dataset']==dataset and r['method']==method
-                    and (r.get('mode')=='aa' or r.get('aa_protocol')) and r.get('condition')!='CLEAN'),None)
-                aa.append(float(candidate[metric]) if candidate else np.nan)
-                c=next((r for r in selected if r['dataset']==dataset and
-                    ((p['scope']=='paper_aligned' and r.get('family')==p['family'] and r.get('condition')=='CLEAN') or
-                     (p['scope']=='common' and r['method']==p['clean_baseline'] and r.get('aa_protocol')))),None)
-                control.append(float(c[metric]) if c else np.nan)
-            x=np.arange(len(POLICY['methods']))
-            axis.bar(x-.25,plain,.25,label='UE');axis.bar(x,aa,.25,label='UE+AA');axis.bar(x+.25,control,.25,label='Matched CLEAN+AA')
-            axis.set_xticks(x,POLICY['methods'],rotation=50,ha='right',fontsize=7)
-            axis.set_ylim(0,105);axis.set_title(dataset);axis.set_ylabel(label)
-        axes.flat[0].legend(fontsize=8)
-        fig.suptitle('Figure6 | matched native/common protocols; missing bars indicate unfinished conditions')
-        fig.tight_layout()
-        for extension in ['pdf','png']:fig.savefig(output/('figure6_'+stem+'.'+extension),dpi=190,bbox_inches='tight')
-        plt.close(fig)
+                x=[0,20,40,60,80,100];y=[values.get(i,np.nan) for i in x]
+                ax.plot(x,y,marker='o',markersize=3.8,lw=1.7,color=COLORS[method],label=LABELS[method])
+                plotted.append({'dataset':dataset,'method':method,'values':[None if np.isnan(v) else v for v in y]})
+            ax.set_title(display(dataset),pad=8)
+            ax.set_ylim(-2,103);ax.set_yticks([0,25,50,75,100]);ax.set_xticks([0,20,40,60,80,100])
+            ax.tick_params(axis='x',labelsize=11.5);ax.tick_params(axis='y',labelsize=12)
+            ax.set_xlabel('Perturbed training images (%)',fontsize=12.5)
+            ax.set_ylabel(axislabel,fontsize=13.5)
+            ax.grid(axis='y',color='#d6d6d6',lw=.55,alpha=.6)
+        handles,labels=axes[0,0].get_legend_handles_labels()
+        fig.legend(handles,labels,loc='lower center',ncol=4,frameon=False,fontsize=11.5,
+                   columnspacing=1,handlelength=1.8,handletextpad=.4,bbox_to_anchor=(.5,-.005))
+        fig.tight_layout(rect=[0,.14,1,1],h_pad=1.6,w_pad=.8)
+        save(fig,'figure5_ratio_'+name)
+
+        fig,axes=plt.subplots(2,2,figsize=(7.6,6.6))
+        plotted=[]
+        for ax,dataset in zip(axes.flat,DATASETS):
+            ue=[];aa=[];clean_aa=[]
+            for method in METHODS:
+                native=method in ['HYPO_P1','HYPO_P5','AR','T-AP']
+                match=next((r for r in primary if r['dataset']==dataset and r['method']==method and r['mode']=='aa' and r.get('condition')!='CLEAN'),None)
+                control=next((r for r in primary if r['dataset']==dataset and r['mode']=='aa' and (
+                    native and r['method']==method and r.get('condition')=='CLEAN' or
+                    not native and r['method']==('CLEAN_AUG' if method=='LSPAUG' else 'CLEAN') and r['protocol_source']=='common')),None)
+                ue.append(float(main[dataset,method][metric]));aa.append(float(match[metric]) if match else np.nan)
+                clean_aa.append(float(control[metric]) if control else np.nan)
+            x=np.arange(len(METHODS))
+            ax.bar(x-.26,ue,.26,color='#7c8290',label='UE')
+            ax.bar(x,aa,.26,color='#2e7eaf',label='UE + AA')
+            ax.bar(x+.26,clean_aa,.26,color='#d59145',label='Matched CLEAN + AA')
+            ax.set_xticks(x,[LABELS[m] for m in METHODS],rotation=65,ha='right',fontsize=11.2)
+            ax.tick_params(axis='x',pad=2);ax.set_ylim(0,104);ax.set_yticks([0,25,50,75,100])
+            ax.set_title(display(dataset),pad=8);ax.set_ylabel(axislabel,fontsize=13.5)
+            plotted.append({'dataset':dataset,'values':[[None if np.isnan(v) else v for v in values] for values in [ue,aa,clean_aa]]})
+        handles,labels=axes[0,0].get_legend_handles_labels()
+        fig.legend(handles,labels,loc='lower center',ncol=3,frameon=False,fontsize=12,
+                   columnspacing=1,handlelength=1.2,bbox_to_anchor=(.5,-.005))
+        fig.tight_layout(rect=[0,.06,1,1],h_pad=1.6,w_pad=.9)
+        save(fig,'figure6_aa_'+name)

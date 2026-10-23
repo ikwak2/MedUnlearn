@@ -1,4 +1,4 @@
-"""EM/REM/SEM original defenders; AP official PGD objective; GUE original BOME.
+"""EM/REM/SEM original defenders and common untargeted AP generation.
 Revised common downstream protocol. All surrogate/generator fitting is train-only.
 """
 import argparse, hashlib, importlib.util, json, math, os, sys, time
@@ -73,15 +73,15 @@ def generate_ap(dataset,method,ds,k,folder,dest,steps=250,restarts=8):
     for restart in range(len(scores),restarts):
         seed_all(42+restart);arr=np.lib.format.open_memmap(candidate,mode='w+',dtype='float32',shape=ds.x.shape);total=0.
         for x,y,ii in loader(ds,batch):
-            x=x.cuda();y=y.cuda();target=(y+1)%k if method=='T-AP' else y
+            x=x.cuda();y=y.cuda();target=y
             adv=(x+torch.randn_like(x)*eps).clamp(0,1);adv=x+(adv-x).clamp(-eps,eps)
             for _ in range(steps):
                 adv=adv.detach().requires_grad_();loss=F.cross_entropy(model(adv),target)
-                if method=='UT-AP':loss=-loss
+                loss=-loss
                 grad=torch.autograd.grad(loss,adv)[0]
                 with torch.no_grad():adv=(x+(adv-step_size*grad.sign()-x).clamp(-eps,eps)).clamp(0,1)
             with torch.no_grad():score=F.cross_entropy(model(adv),target,reduction='sum').item()
-            total+=score if method=='T-AP' else -score
+            total+=-score
             arr[ii.numpy()]=adv.detach().cpu().numpy()
             print('AP',dataset,method,'restart',restart+1,'samples',int(ii[-1])+1,flush=True)
         arr.flush();del arr;scores.append(total/len(ds))

@@ -241,13 +241,13 @@
   },
   "engines/common/generate_simple.py": {
     "original_sha256": "b43e3bcbdf59ca0b966eec60db373f96fcf60065252171a397f3f9eef05d15ed",
-    "release_sha256": "dd49aa34e08e4a0add02366b7e21406a34da43042860e18d3928735c40bf88e8",
-    "adaptation": "Remove unused search/old GUE dispatch and absolute metadata path; final training/generation numerical code retained"
+    "release_sha256": "0aa884094e3bb820816203a8ac2f0730abf9eeb0b66e4e639e94517e1929f2e6",
+    "adaptation": "Remove unused non-main branches, upstream demos and unused model imports; preserve active numerical operations"
   },
   "engines/common/generate_advanced.py": {
     "original_sha256": "90f3b6d1635efdbc60f6a24dc520450e54b9f23678301bf4d4396e7f65a2a0ee",
-    "release_sha256": "11a5a7433b554c3ace5eeb2b98472a79d07a105da172fd20ec5a8b3e2ea60b7b",
-    "adaptation": "Remove unused search/old GUE dispatch and absolute metadata path; final training/generation numerical code retained"
+    "release_sha256": "0253f0f6b71201593d4aa425e5a9daa05ee99064f6d0c7d09a2a689a33b28399",
+    "adaptation": "Remove unused non-main branches, upstream demos and unused model imports; preserve active numerical operations"
   },
   "engines/common/benchmark_fixed.py": {
     "release_sha256": "6f2de6ed1bf107706bc74834fa0865576d9d7887349d00c97836448802bf6124",
@@ -256,5 +256,20 @@
   "engines/common/loss_weights.py": {
     "release_sha256": "196394846f50c3caaec6afaceaeb353aa51af7514d5d3a0effec6fa868b1ab2e",
     "adaptation": "Final ordinary-CE X-ray(fixed) support from the reviewed staging transformation"
+  },
+  "third_party/GUE/gue.py": {
+    "original_sha256": "ad5fe1147975f7522bbe4f043165d6bea9cc5a660c22dbbecc4bb406baba0624",
+    "release_sha256": "a0f8517af05c3abb11bb6be7ec978bb918113689a05fb70d65c2f1e0a4cd0eb8",
+    "adaptation": "Remove unused non-main branches, upstream demos and unused model imports; preserve active numerical operations"
+  },
+  "third_party/GUE/utils.py": {
+    "original_sha256": "b4a9e57932908c2f18f5d47e3583919d39949e3e48c538916d3a4951f9e26aac",
+    "release_sha256": "a5c77b533811accb4d296917d8f2986214ba98b0fe65d0ac9f90e9788d307f4f",
+    "adaptation": "Remove unused non-main branches, upstream demos and unused model imports; preserve active numerical operations"
+  },
+  "third_party/GUE/models/__init__.py": {
+    "original_sha256": "eae80cf9ca405e2b06c805a0f6c5270a066691ba7f44f25206a0e5a9576e4d35",
+    "release_sha256": "2313ade983c0ede87dfbd7201c00977876d59c5628866c148cbdb3215d16ab1b",
+    "adaptation": "Remove unused non-main branches, upstream demos and unused model imports; preserve active numerical operations"
   }
 }

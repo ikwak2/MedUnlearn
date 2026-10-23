@@ -8,7 +8,7 @@ Reproduction code for the revised medical-imaging unlearnable-example benchmark.
 | Paper-aligned | AR, T-AP | Fixed final epoch |
 | Common benchmark | EM, REM, SEM, GUE, LSPNormal, LSPAUG, UT-AP, HYPO P3 | Maximum clean-validation balanced accuracy; earliest tie |
 
-The datasets are **CIFAR-10, X-ray(fixed), MRI4, and MRI15**. X-ray(fixed) is the patient-disjoint, single-annotation, 12-class subset with ordinary cross entropy. The historical first-label 15-class X-ray benchmark and weighted-CE ablations are excluded.
+The datasets are **CIFAR-10, X-ray, MRI4, and MRI15**. X-ray is the patient-disjoint, single-annotation, 12-class subset with ordinary cross entropy. The internal identifier `X-ray(fixed)` distinguishes this final subset from the archived first-label benchmark. The historical 15-class benchmark and weighted-CE ablations are excluded.
 
 Each method is compared with its **own matching CLEAN control**. LSPAUG uses CLEAN_AUG. Paper-aligned training differs from the common benchmark in optimizer, augmentation, epochs, seed, and the CIFAR training/holdout protocol. Report paired CLEAN/UE metrics and recall decreases rather than treating the raw scores as an algorithm-only ranking. P5 CIFAR validation-best and final-epoch scores differ substantially; both selection-labelled results are retained.
 
@@ -26,9 +26,9 @@ python -m medunlearn analyze --reported --output outputs/reported_analysis
 
 Run commands from this repository root, or install with `python -m pip install .` to use the `medunlearn` command elsewhere. The numerical environments use Python3.10; Python3.12+ is excluded because the native PyTorch2.0.1 environment is required. [`docs/VALIDATION.md`](docs/VALIDATION.md) records the checks actually performed.
 
-[`reported_results/`](reported_results/README.md) contains the **48/48 completed UE conditions**, their matched CLEAN metrics, and anonymous class aggregates. X-ray(fixed) GUE is now included: **45.60% accuracy, 10.63% balanced accuracy**, selected at epoch25. The accompanying Figure5/6 snapshot contains completed conditions only; gaps remain for running experiments. This repository does not distribute images, patient/sample identifiers, individual predictions, trained checkpoints, server queues, or incident logs.
+[`reported_results/`](reported_results/README.md) contains the **48/48 completed UE conditions**, their matched CLEAN metrics, and anonymous class aggregates. X-ray(fixed) GUE is now included: **45.60% accuracy, 10.63% balanced accuracy**, selected at epoch25. All final Figure 5 ratio trainings (192/192), Figure 6 trainings including matched controls (72/72), SSIM conditions (48/48), and generation-cost measurements (33/33) are complete. This repository does not distribute images, patient/sample identifiers, individual predictions, trained checkpoints, server queues, or incident logs.
 
-[`reported_results/selection_sensitivity.csv`](reported_results/selection_sensitivity.csv) retains both selection-labelled native results. The [class analyses](reported_results/analysis/) and [Figure5/6 previews](reported_results/figures56/) were regenerated from the anonymous snapshot. [`reported_results/auxiliary/`](reported_results/auxiliary/) contains completed common-method SSIM and generation-cost measurements; paper-aligned P1/P5/AR/T-AP measurements are outside that auxiliary snapshot, so these are partial final-protocol tables.
+[`reported_results/selection_sensitivity.csv`](reported_results/selection_sensitivity.csv) retains both selection-labelled native results. The [class analyses](reported_results/analysis/) and [Figure5/6 previews](reported_results/figures56/) were regenerated from the anonymous snapshot. [`reported_results/auxiliary/`](reported_results/auxiliary/) contains the complete final-protocol SSIM and generation-cost tables. P1/P5/AR/T-AP use their paper-aligned generators; other methods use the declared common settings.
 
 ## Prepare the data
 
@@ -108,12 +108,12 @@ CUDA_VISIBLE_DEVICES=0 .venv-reference/bin/python -m medunlearn figure --mode aa
   --workspace /absolute/path/to/workspace --output outputs/figures56
 ```
 
-The figure collector preserves all selection-labelled CSV results and renders ACC/BA/macro-F1 curves/bars with each method's prescribed primary selection. Unfinished conditions remain gaps or missing bars.
+The figure collector preserves all selection-labelled CSV results and renders ACC/BA/macro-F1 curves/bars with each method's prescribed primary selection.
 
 Figure 5 reuses Table 3 CLEAN/UE as its 0/100% endpoints. Figure 6 applies official per-image maximum-loss UEraser: K=5 for the first 50 epochs, then K=1, without JPEG or extra PGD. Native base augmentation and input normalization are preserved. See [`docs/PROTOCOLS.md`](docs/PROTOCOLS.md) for the native P1/P5 CIFAR poisoned-holdout detail, paired controls, model-selection rules, perturbation budgets, and limitations.
 
 ## Source provenance and validation
 
-`engines/reference/` preserves the actual frozen sources used for the four paper-aligned methods. Portability edits change the CIFAR root and host metadata and normalize trailing whitespace; numerical training logic is retained. `engines/common/` contains the final common trainer and selected generators; unused CLEAN-search candidates and the superseded GUE generator were removed. `configs/source_provenance.json` records original/release source hashes. Third-party notices are in [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
+`engines/reference/` preserves the actual frozen sources used for the four paper-aligned methods. Portability edits change the CIFAR root and host metadata and normalize trailing whitespace; numerical training logic is retained. `engines/common/` contains the final common trainer and selected generators; unused CLEAN-search candidates, non-main common P1/P5/AR/T-AP paths, the superseded GUE generator, and unused GUE demos/architectures were removed. `configs/source_provenance.json` records original/release source hashes. Third-party notices are in [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
 
 The published runs use one seed per protocol. MRI patient-level independence could not be verified. Low classification accuracy is not a formal privacy guarantee, and poor clean disease recall limits claims about additional protection. GPU/software changes can prevent bitwise identical training.

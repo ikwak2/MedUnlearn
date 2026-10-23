@@ -1,10 +1,14 @@
 {
+  "ssim_completed": 48,
+  "ssim_planned": 48,
   "ssim_common_completed": 32,
-  "ssim_common_planned": 32,
-  "cost_common_completed": 20,
-  "cost_common_planned": 21,
-  "scope": "Completed common-protocol methods matching final main; native auxiliary measurements are not included",
-  "missing_cost": "X-ray(fixed) GUE generation cost is still running",
+  "ssim_native_completed": 16,
+  "cost_completed": 33,
+  "cost_planned": 33,
+  "cost_common_completed": 21,
+  "cost_native_completed": 12,
+  "scope": "Complete final-main Tables 4/5; P1/P5/AR/T-AP paper-aligned and other methods common",
   "shared_generator": "LSPAUG and LSPNormal share one generation measurement",
+  "ssim_definition": "Actual training images; native P1/P5 effective uint8 truncation; native CIFAR holdout excluded; Gaussian11 sigma1.5 float64",
   "cost_definition": "Generation only; excludes CLEAN/crafting pretraining and downstream training; one run per condition"
 }

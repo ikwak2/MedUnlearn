@@ -4,8 +4,10 @@ import sys
 
 REPO = Path(__file__).resolve().parents[1]
 if not (REPO/'configs/table3.json').exists():
-    REPO = next(p for p in [Path(sys.prefix)/'share/medunlearn', REPO/'share/medunlearn']
-                if (p/'configs/table3.json').exists())
+    from importlib.metadata import distribution
+    installed=distribution('medunlearn')
+    REPO=next(installed.locate_file(p).resolve().parents[1] for p in installed.files
+              if str(p).endswith('share/medunlearn/configs/table3.json'))
 POLICY = json.loads((REPO / 'configs/table3.json').read_text())
 TASKS = {'CIFAR-10': 'cifar10', 'MRI4': 'mri4', 'MRI15': 'mri15', 'X-ray(fixed)': 'xrayfixed'}
 
